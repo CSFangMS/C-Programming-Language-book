@@ -1,0 +1,35 @@
+# Project: prj13_9
+# Makefile created by Dev-C++ 4.9.8.0
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = hw13_9.o area.o peri.o $(RES)
+LINKOBJ  = hw13_9.o area.o peri.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" 
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/include/c++"  -I"C:/Dev-Cpp/include/c++/mingw32"  -I"C:/Dev-Cpp/include/c++/backward"  -I"C:/Dev-Cpp/include" 
+BIN  = prj13_9.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS = $(INCS) 
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before prj13_9.exe all-after
+
+
+clean: clean-custom
+	rm -f $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	$(CC) $(LINKOBJ) -o "prj13_9.exe" $(LIBS)
+
+hw13_9.o: hw13_9.c
+	$(CC) -c hw13_9.c -o hw13_9.o $(CFLAGS)
+
+area.o: area.c
+	$(CC) -c area.c -o area.o $(CFLAGS)
+
+peri.o: peri.c
+	$(CC) -c peri.c -o peri.o $(CFLAGS)

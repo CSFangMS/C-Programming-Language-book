@@ -1,0 +1,32 @@
+# Project: prj13_5
+# Makefile created by Dev-C++ 4.9.8.0
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = function.o hw13_5.o $(RES)
+LINKOBJ  = function.o hw13_5.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" 
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/include/c++"  -I"C:/Dev-Cpp/include/c++/mingw32"  -I"C:/Dev-Cpp/include/c++/backward"  -I"C:/Dev-Cpp/include" 
+BIN  = prj13_5.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS = $(INCS) 
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before prj13_5.exe all-after
+
+
+clean: clean-custom
+	rm -f $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	$(CC) $(LINKOBJ) -o "prj13_5.exe" $(LIBS)
+
+function.o: function.c
+	$(CC) -c function.c -o function.o $(CFLAGS)
+
+hw13_5.o: hw13_5.c
+	$(CC) -c hw13_5.c -o hw13_5.o $(CFLAGS)
